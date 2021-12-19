@@ -1,23 +1,24 @@
-function playMusic(keyCode) {
-    const key = document.querySelector(`kbd[data-key="${keyCode}"]`);
-    if (!key) {
-        console.log('no mapping key');
-        return;
-    };
-    const audio = document.querySelector(`audio[data-key="${keyCode}"]`);
-    const parentOfKey = key.parentElement;
+const secondHand = document.querySelector('.second-hand');
+const minhand = document.querySelector('.min-hand');
+const hourHand = document.querySelector('.hour-hand');
 
-    audio.currentTime = 0;
-    audio.play();
-    parentOfKey.classList.add('playing');
+function setDate() {
+    const now = new Date();
 
+
+    const second = now.getSeconds();
+    const secondDegree = ((second / 60) * 360) + 90;
+    secondHand.style.transform = `rotate(${secondDegree}deg)`;
+
+    const mins = now.getMinutes();
+    const minsDegree = ((mins / 60) * 360) + 90;
+    minhand.style.transform = `rotate(${minsDegree}deg)`;
+
+
+    const hour = (now.getHours() - 12);
+
+    const hourDegree = ((hour / 12) * 360) + 90;
+    hourHand.style.transform = `rotate(${hourDegree}deg)`;
 }
 
-const button = document.querySelectorAll('.button');
-button.forEach(btn => btn.addEventListener('transitionend', (e) => {
-    btn.classList.remove('playing');
-}));
-
-document.addEventListener('keydown', (e) => {
-    playMusic(e.keyCode);
-});
+setInterval(setDate, 1000);
