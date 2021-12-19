@@ -4,13 +4,47 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>JS 30 Day Challenge</title>
+    <link rel="icon" href="./assets/favicon.ico" />
     <link rel="stylesheet" href="style.css" />
+    <title>JS 30 Day Challenge</title>
   </head>
   <body>
     <div class="bg">
       <p class="challenge-title">Day one - Drum kit</p>
+      <div class="buttons">
+        <div class="button">
+          <kbd data-key="65">A</kbd>
+          <hr />
+          <span>China Cymbal</span>
+        </div>
+        <div class="button">
+          <kbd data-key="83">S</kbd>
+          <hr />
+          <span>Drum Sticks</span>
+        </div>
+        <div class="button">
+          <kbd data-key="68">D</kbd>
+          <hr />
+          <span>Hi Hat</span>
+        </div>
+        <div class="button">
+          <kbd data-key="70">F</kbd>
+          <hr />
+          <span>Snare</span>
+        </div>
+        <div class="button">
+          <kbd data-key="71">G</kbd>
+          <hr />
+          <span>Tom Tom</span>
+        </div>
+      </div>
     </div>
+
+    <audio data-key="65" src="./assets/audio/ChinaCymbal.mp3"></audio>
+    <audio data-key="83" src="./assets/audio/DrumSticks.mp3"></audio>
+    <audio data-key="68" src="./assets/audio/HiHat277.mp3"></audio>
+    <audio data-key="70" src="./assets/audio/snare279.mp3"></audio>
+    <audio data-key="71" src="./assets/audio/TomTom275.mp3"></audio>
 
     <script src="./app.js"></script>
   </body>

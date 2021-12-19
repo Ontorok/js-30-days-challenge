@@ -1,54 +1,23 @@
-const functionOne = (callback) => {
-    setTimeout(() => {
-        console.log('Function One');
-        callback();
-    }, 1000);
+function playMusic(keyCode) {
+    const key = document.querySelector(`kbd[data-key="${keyCode}"]`);
+    if (!key) {
+        console.log('no mapping key');
+        return;
+    };
+    const audio = document.querySelector(`audio[data-key="${keyCode}"]`);
+    const parentOfKey = key.parentElement;
 
-};
-const functionTwo = (callback) => {
-    setTimeout(() => {
-        console.log('Function Two');
-        callback();
-    }, 1000);
+    audio.currentTime = 0;
+    audio.play();
+    parentOfKey.classList.add('playing');
 
-};
-const functionThree = (callback) => {
-    setTimeout(() => {
-        console.log('Function Three');
-        callback();
-    }, 1000);
+}
 
-};
-const functionFour = (callback) => {
-    setTimeout(() => {
-        console.log('Function Four');
-        callback();
-    }, 1000);
-};
-const functionFive = () => {
-    setTimeout(() => {
-        console.log('Function Five');
-        console.log('---------------------------------');
-    }, 1000);
+const button = document.querySelectorAll('.button');
+button.forEach(btn => btn.addEventListener('transitionend', (e) => {
+    btn.classList.remove('playing');
+}));
 
-};
-
-
-
-setInterval(() => {
-    functionOne(
-        () => functionTwo(
-            () => functionThree(
-                () => functionFour(
-                    () => functionFive()
-                )
-            )
-        )
-    );
-}, 5000);
-
-
-//functionTwo();
-//functionThree();
-//functionFour();
-//functionFive();
+document.addEventListener('keydown', (e) => {
+    playMusic(e.keyCode);
+});

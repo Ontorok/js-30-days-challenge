@@ -35,3 +35,35 @@ html {
   left: 50%;
   transform: translate(-50%, -50%);
 }
+kbd {
+  display: block;
+  font-size: 40px;
+}
+
+hr {
+  margin: 10px;
+}
+
+.buttons {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  align-items: center;
+}
+
+.button {
+  width: 150px;
+  margin: 20px;
+  color: yellow;
+  border: 2px solid #fff;
+  text-align: center;
+  padding: 10px 15px;
+}
+
+.playing {
+  border: 5px solid greenyellow;
+  transform: scale(1.1);
+  transition: transform 0.07s;
+}
