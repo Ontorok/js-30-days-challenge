@@ -3,59 +3,56 @@
   padding: 0;
 }
 
-html {
-  background: #011c2e url("./assets/images/sky.jpg");
-  background-size: cover;
-  text-align: center;
-  font-size: 10px;
-}
-
 body {
-  font-size: 2rem;
+  background-color: white;
+}
+
+.container {
+  width: 80%;
+  height: 100vh;
+  margin: 0 auto;
+  background-color: rgb(245, 245, 220);
+}
+h1 {
+  text-transform: uppercase;
+  text-align: center;
+  padding-top: 15px;
+}
+
+.parameter-container {
   display: flex;
-  align-items: center;
   justify-content: center;
-  flex: 1;
-  min-height: 100vh;
+  align-items: center;
+  margin: 20px;
 }
 
-.clock {
-  width: 40rem;
-  height: 40rem;
-  border: 2rem solid black;
-  border-radius: 50%;
-  position: relative;
-  padding: 25px;
+.spacing,
+.blur,
+.base-color {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 20px;
 }
 
-.clock-face {
-  box-sizing: border-box;
-  position: relative;
-  width: 100%;
-  height: 100%;
+label {
+  margin-right: 10px;
 }
 
-.hand {
-  width: 50%;
-  height: 7px;
-  position: absolute;
-  background: black;
-  top: 50%;
-  transform-origin: 100%;
-  transform: rotate(90deg);
-  transition: all 0.05s;
-  transition-timing-function: cubic-bezier(0.1, 2.7, 0.58, 1);
+.image-container {
+  display: flex;
+  margin-top: 20px;
 }
-
-.hour-hand {
+.image-container div {
+  padding: 20px;
   background-color: red;
-  transform: rotate(20deg);
 }
-.min-hand {
-  background-color: green;
-  transform: rotate(40deg);
-}
-.second-hand {
-  background-color: blueviolet;
-  transform: rotate(60deg);
+
+img {
+  width: 80%;
+  height: 500px;
+  margin: 0 auto;
+  padding: 10px;
+  background-color: rgba(4, 170, 109, 0.5);
+  opacity: 0.2;
 }
