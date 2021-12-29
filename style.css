@@ -25,6 +25,7 @@ body {
   border: 2rem solid black;
   border-radius: 50%;
   position: relative;
+  padding: 25px;
 }
 
 .clock-face {
