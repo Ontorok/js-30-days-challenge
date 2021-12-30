@@ -10,26 +10,19 @@
   </head>
   <body>
     <div class="container">
-      <h1>update css variables with js</h1>
-      <hr />
-      <div class="parameter-container">
-        <div class="spacing">
-          <label>Spacing</label>
-          <input type="range" min="0" max="50" value="10" />
-        </div>
-        <div class="blur">
-          <label>Blur Effect</label>
-          <input type="range" min="0" max="1" value="0.5" />
-        </div>
-        <div class="base-color">
-          <label>Base Color</label>
-          <input type="color" value="#c1c1c1" />
-        </div>
+      <h2>Update CSS Variable With <span class="h1">JS</span></h2>
+      <div class="controls">
+        <label for="spacing">Spacing: </label>
+        <input type="range" name="spacing" min="10" max="200" value="10" data-sizing="px">
+
+        <label for="blur">Blur: </label>
+        <input type="range" name="blur" min="0" max="25" value="10" data-sizing="px">
+
+        
+        <label for="base">Blur: </label>
+        <input type="color" name="base"  value="#ffc600" >
       </div>
-      <div class="image-container">
-        <img src="./assets/images/background.jpg" alt="" />
-      </div>
-    </div>
+      <img src="http://unsplash.it/800/500?image=599" width="800" height="500" alt="sky">
     <script src="./app.js"></script>
   </body>
 </html>
