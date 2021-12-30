@@ -6,23 +6,24 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="icon" href="./assets/favicon.ico" />
     <link rel="stylesheet" href="style.css" />
-    <title>JS 30 Day Challenge - Day 03</title>
+    <title>JS 30 Day Challenge - Day 04</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      .container {
+        width: 100%;
+        height: 100vh;
+        background: linear-gradient(rgba(4, 9, 30, 0.7), rgba(4, 9, 30, 0.7)),
+          url(./assets/images/background.jpg);
+        background-position: center;
+        background-size: cover;
+      }
+    </style>
   </head>
   <body>
-    <div class="container">
-      <h2>Update CSS Variable With <span class="h1">JS</span></h2>
-      <div class="controls">
-        <label for="spacing">Spacing: </label>
-        <input type="range" name="spacing" min="10" max="200" value="10" data-sizing="px">
-
-        <label for="blur">Blur: </label>
-        <input type="range" name="blur" min="0" max="25" value="10" data-sizing="px">
-
-        
-        <label for="base">Blur: </label>
-        <input type="color" name="base"  value="#ffc600" >
-      </div>
-      <img src="http://unsplash.it/800/500?image=599" width="800" height="500" alt="sky">
+    <div class="container"></div>
     <script src="./app.js"></script>
   </body>
 </html>
