@@ -41,4 +41,5 @@ const filter_comment = comments.find(com => com.id === 823423);
 const filter_comment_index = comments.findIndex(com => com.id === 823423);
 
 // delete the comment with the ID of 823423
-//comments.splice(1, 1);
+comments.splice(1, 1);
+
