@@ -1,117 +1,44 @@
-const inventors = [
-    { firstName: 'Albert', lastName: 'Einstein', birth: 1879, passed: 1955 },
-    { firstName: 'Isaac', lastName: 'Newton', birth: 1643, passed: 1727 },
-    { firstName: 'Galileo', lastName: 'Galilei', birth: 1564, passed: 1642 },
-    { firstName: 'Marie', lastName: 'Curie', birth: 1867, passed: 1934 },
-    { firstName: 'Johannes', lastName: 'kepler', birth: 1571, passed: 1630 },
-    { firstName: 'Nicolaus', lastName: 'Copernicus', birth: 1473, passed: 1543 },
-    { firstName: 'Max', lastName: 'Planck', birth: 1858, passed: 1947 }
-];
-
 const people = [
-    'Cairo Mora'
-    , 'Abdullah Shaw'
-    , 'Rachael Kaufman'
-    , 'Jamaal Hagan'
-    , 'Kalem Russo'
-    , 'Kurt Parkes'
-    , 'Naveed Harper'
-    , 'Jerome Mackie'
-    , 'Arfa Arellano'
-    , 'Aleah Wainwright'
-    , 'Alissa Mccabe'
-    , 'Celeste Wiley'
-    , 'Emilee Mustafa'
-    , 'Ali Bonilla'
-    , 'Sunil Bevan'
-    , 'Elen Browne'
-    , 'Bobbie Markham'
-    , 'Brandy Henson'
-    , 'Dawson Pritchard'
-    , 'Hettie Williams'
-    , 'Sofie Paul'
-    , 'Isabelle Guzman'
-    , 'Waseem Pope'
-    , 'Murphy Mccall'
-    , 'Jim Melia'
-    , 'Shae Craft'
-    , 'Nabilah Bellamy'
-    , 'Jago Sharples'
-    , 'Nelson Strong'
-    , 'Cecil Thorpe'
-    , 'Saif Greenwood'
-    , 'Amelia Snider'
-    , 'Joseff Chandler'
-    , 'Keelan Lowe'
-    , 'Yanis Ratcliffe'
-    , 'Francisco Rennie'
-    , 'Viola Floyd'
-    , 'Kezia Briggs'
-    , 'Holly Gregory'
-    , 'Harrison Good'
-    , 'Subhaan Croft'
-    , 'Geraldine Sosa'
-    , 'Muna Henderson'
-    , 'Eshaan Peterson'
-    , 'Emmanuel Redfern'
-    , 'Lea Bautista'
-    , 'Kohen Dickens'
-    , 'Mimi Mccarthy'
-    , 'Mina Contreras'
-    , 'Kayan Donald'
+    { name: 'Wes', year: 1988 },
+    { name: 'Kait', year: 1986 },
+    { name: 'Irv', year: 1970 },
+    { name: 'Lux', year: 2015 }
 ];
 
-// 1. Filter the list of inventors for those who were born in 1500's
-const fifteen = inventors.filter(inventor => inventor.birth <= 1599 && inventor.birth >= 1500);
-//console.table(fifteen);
+const comments = [
+    { text: 'Love this!', id: 523423 },
+    { text: 'Super good', id: 823423 },
+    { text: 'You are the best', id: 2039842 },
+    { text: 'Ramen is my fav food ever', id: 123523 },
+    { text: 'Nice Nice Nice!', id: 542328 }
+];
 
-// 2. Give us an array of inventors first name and last name
-const inventorsname = inventors.map(({ firstName, lastName }) => `${firstName} ${lastName}`);
-//console.log(inventorsname);
+// Some and Every Checks
+// Array.prototype.some() // is at least one person 19 or older?
+const some_people = people.some(p => {
+    const currentYear = new Date().getFullYear();
+    const age = currentYear - p.year;
+    return age >= 19;
+});;
+//console.log(some_people);
 
-// 3. Sort the inventors by birth date, oldest to youngest
-const sortedInventors = inventors.sort((first, second) => first.birth < second.birth ? 1 : -1);
-//console.table(sortedInventors);
+// Array.prototype.every() // is everyone 19 or older?
+const every_people = people.every(p => {
+    const currentYear = new Date().getFullYear();
+    const age = currentYear - p.year;
+    return age >= 19;
+});;
+//console.log(every_people);
 
-// 4. How mane years did all inventors lived
-const totalLived = inventors
-    .map(inventor => ({ ...inventor, lived: inventor.passed - inventor.birth }))
-    .reduce((acc, curr) => {
-        return acc + curr.lived;
-    }, 0);
+// Array.prototype.find()
+// Find is like filter, but instead returns just the one you are looking for
+const filter_comment = comments.find(com => com.id === 823423);
+//console.log(filter_comment);
+// find the comment with the ID of 823423
 
-//console.log(totalLived);
+// Array.prototype.findIndex()
+// Find the comment with this ID
+const filter_comment_index = comments.findIndex(com => com.id === 823423);
 
-// 5. Sort the inventors by years lived
-const sortedInventorsByLived = inventors
-    .map(inventor => ({ ...inventor, lived: inventor.passed - inventor.birth }))
-    .sort((a, b) => a.lived > b.lived ? 1 : -1);
-
-
-//console.table(sortedInventorsByLived);
-
-// 6. Create a list of Bourevard in paris that contains 'de' anywhere in the name
-// source: https://en.wikipedia.org/wiki/Category:Boulevards_in_Paris
-// const category = document.querySelector('.mw-category');
-// const items = Array.from(category.querySelectorAll('a'));
-// const names = items.map(item => item.textContent).filter(f => f.includes('de'));
-
-
-// 7. Sort the people alphabetically by last name
-const peoplenames = people.map(p => p.split(' '));
-const sortedPeople = peoplenames.sort((a, b) => a[1] > b[1] ? 1 : -1);
-//console.table(sortedPeople);
-
-// 8. Reduce Exercise
-// Sum up the instances of each of these
-const data = ['car', 'car', 'truck', 'truck', 'bike', 'walk', 'car', 'van', 'bike', 'walk', 'car', 'van', 'car', 'truck'];
-const transport = data.reduce((acc, curr) => {
-    if (acc[curr]) {
-        acc[curr] += 1;
-    } else {
-        acc[curr] = 1;
-    }
-
-    return acc;
-}, {});
-console.log(transport);
+// delete the comment with the ID of 823423
+//comments.splice(1, 1);
